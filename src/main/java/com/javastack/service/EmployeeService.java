@@ -17,6 +17,8 @@ public class EmployeeService {
     }
 
     public Employee saveEmployee(Employee employee) {
+        Long nextEmpId = repository.getNextId();
+        employee.setEmpId(nextEmpId);
         return repository.save(employee);
     }
 
